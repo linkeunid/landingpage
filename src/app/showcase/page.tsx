@@ -1,19 +1,15 @@
-import { Explore } from "@/components/layout/explore";
 import { Footer } from "@/components/layout/footer";
-import { Hero } from "@/components/layout/hero";
-import { ListArticle } from "@/components/layout/list-article";
+import { Showcase } from "@/components/layout/showcase";
 import { Navbar } from "@/components/ui/navbar";
 
-export default function HomePage() {
+export default function ShowcasePage() {
   return (
     <div className="min-h-screen font-[family-name:var(--font-nunito-sans)]">
       <header>
         <Navbar />
       </header>
-      <main>
-        <Hero />
-        <Explore />
-        <ListArticle />
+      <main className="pt-44">
+        <Showcase />
       </main>
       <Footer />
     </div>
