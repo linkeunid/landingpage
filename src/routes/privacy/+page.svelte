@@ -9,17 +9,17 @@
 	<meta name="description" content="Privacy Policy for {siteConfig.siteName} platform and services." />
 </svelte:head>
 
-<div class="container mx-auto px-4 py-16">
-	<div class="max-w-4xl mx-auto">
-		<div class="text-center mb-12">
-			<h1 class="text-4xl font-bold mb-4">Privacy Policy</h1>
-			<p class="text-lg text-muted-foreground">
+<section class="zen-spacing">
+	<div class="zen-section">
+		<div class="text-center mb-20">
+			<h1 class="text-3xl mb-4">Privacy Policy</h1>
+			<p class="text-muted-foreground zen-text">
 				Last updated: {siteConfig.company.founded}
 			</p>
 		</div>
 
-		<Card>
-			<CardContent class="p-8">
+		<Card class="zen-card p-12">
+			<CardContent class="p-0">
 				<div class="prose prose-neutral max-w-none">
 					<h2 class="text-2xl font-semibold mb-4">1. Indonesian Privacy Framework</h2>
 					<p class="mb-6">
@@ -193,4 +193,4 @@
 			</CardContent>
 		</Card>
 	</div>
-</div>
+</section>

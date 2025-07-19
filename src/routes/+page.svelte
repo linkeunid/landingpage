@@ -10,59 +10,59 @@
 	<meta name="description" content={siteConfig.siteDescription} />
 </svelte:head>
 
-<section class="py-20 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950 dark:to-emerald-950">
-	<div class="container mx-auto px-4 text-center">
-		<Badge class="mb-4" style="background-color: {siteConfig.brand.colors.tealGreen}; color: white;">SaaS Platform</Badge>
-		<h1 class="text-4xl md:text-6xl font-bold mb-6">
+<section class="zen-spacing">
+	<div class="zen-section text-center">
+		<div class="mb-12">
+			<Badge class="mb-8 px-4 py-2 bg-primary/10 text-primary border-primary/20 font-light">
+				SaaS Platform
+			</Badge>
+		</div>
+		<h1 class="text-3xl md:text-5xl mb-8 zen-text max-w-2xl mx-auto">
 			{siteConfig.tagline.split(', ')[0]}, <br />
 			<span class="text-primary">{siteConfig.tagline.split(', ')[1]}, {siteConfig.tagline.split(', ')[2]}</span>
 		</h1>
-		<p class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-			All-in-one platform providing developer tools, shortlink management, and digital solutions. 
-			Helping businesses and developers optimize their work with single-factor authentication.
+		<p class="text-lg text-muted-foreground mb-16 max-w-xl mx-auto zen-text">
+			All-in-one platform providing developer tools, shortlink management, and digital solutions.
 		</p>
-		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<Button size="lg" class="text-lg" href="/contact">{siteConfig.cta.secondary}</Button>
-			<Button variant="outline" size="lg" class="text-lg" href="/apps">{siteConfig.cta.developers}</Button>
+		<div class="flex flex-col sm:flex-row gap-6 justify-center">
+			<Button size="lg" class="zen-button px-8 py-3" href="/contact">{siteConfig.cta.secondary}</Button>
+			<Button variant="outline" size="lg" class="zen-button px-8 py-3" href="/apps">{siteConfig.cta.developers}</Button>
 		</div>
 	</div>
 </section>
 
-<section class="py-16">
-	<div class="container mx-auto px-4">
-		<div class="text-center mb-12">
-			<h2 class="text-3xl font-bold mb-4">Our Services</h2>
-			<p class="text-lg text-muted-foreground">
-				Comprehensive digital solutions for businesses and developers
+<section class="zen-spacing">
+	<div class="zen-section text-center">
+		<div class="mb-20">
+			<h2 class="text-2xl mb-4">Our Services</h2>
+			<p class="text-muted-foreground zen-text max-w-md mx-auto">
+				Comprehensive digital solutions
 			</p>
 		</div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 			{#each siteConfig.services.slice(0, 3) as service, i}
-				<Card>
-					<CardHeader>
-						<CardTitle>{service}</CardTitle>
-						<CardDescription>
+				<Card class="zen-card p-8 text-center">
+					<CardHeader class="pb-6">
+						<CardTitle class="text-lg mb-3">{service}</CardTitle>
+						<CardDescription class="zen-text">
 							{#if i === 0}
-								Custom software solutions for your business needs
+								Custom software solutions
 							{:else if i === 1}
-								All-in-one platform with developer tools and analytics
+								All-in-one platform with developer tools
 							{:else}
 								Responsive and modern web applications
 							{/if}
 						</CardDescription>
 					</CardHeader>
 					<CardContent>
-						<p class="text-sm text-muted-foreground">
+						<p class="text-sm text-muted-foreground zen-text">
 							{#if i === 0}
-								We build tailored software solutions that help businesses optimize their operations 
-								and achieve their digital transformation goals.
+								Tailored software solutions that help businesses optimize operations and achieve digital transformation.
 							{:else if i === 1}
-								Our SaaS platform provides shortlink management, analytics, and 16+ developer tools 
-								in one unified dashboard with single-factor authentication.
+								Shortlink management, analytics, and 16+ developer tools in one unified dashboard.
 							{:else}
-								Creating responsive, fast, and modern web applications using the latest technologies 
-								and best practices for optimal user experience.
+								Fast, modern web applications using latest technologies for optimal user experience.
 							{/if}
 						</p>
 					</CardContent>
@@ -72,17 +72,17 @@
 	</div>
 </section>
 
-<section class="py-16 bg-muted/50">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<section class="zen-spacing bg-muted/30">
+	<div class="zen-section">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 			<div>
-				<h2 class="text-3xl font-bold mb-6">Why Choose {siteConfig.siteName}?</h2>
-				<div class="space-y-4">
+				<h2 class="text-2xl mb-8">Why Choose {siteConfig.siteName}?</h2>
+				<div class="space-y-8">
 					{#each siteConfig.values as value, i}
-						<div class="flex items-start space-x-3">
-							<div class="w-2 h-2 rounded-full mt-2" style="background-color: {siteConfig.brand.colors.tealGreen};"></div>
+						<div class="flex items-start space-x-4">
+							<div class="w-1 h-1 rounded-full mt-3 bg-primary"></div>
 							<div>
-								<h3 class="font-semibold">
+								<h3 class="mb-2 font-light">
 									{#if i === 0}
 										Best Service Quality
 									{:else if i === 1}
@@ -91,7 +91,7 @@
 										Continuous Innovation
 									{/if}
 								</h3>
-								<p class="text-sm text-muted-foreground">
+								<p class="text-sm text-muted-foreground zen-text">
 									{value}
 								</p>
 							</div>
@@ -99,45 +99,46 @@
 					{/each}
 				</div>
 			</div>
-			<div class="bg-card rounded-lg p-8 shadow-sm border">
-				<h3 class="text-2xl font-bold mb-4">Launch Celebration!</h3>
-				<p class="text-muted-foreground mb-6">
-					We're celebrating our production server launch with special pricing. 
-					Join us and get started with our platform today!
+			<div class="zen-card p-12 text-center">
+				<h3 class="text-xl mb-6">Launch Celebration!</h3>
+				<p class="text-muted-foreground mb-8 zen-text">
+					We're celebrating our production server launch with special pricing.
 				</p>
-				<Button size="lg" class="w-full" href="/contact">{siteConfig.cta.secondary}</Button>
+				<Button size="lg" class="zen-button w-full" href="/contact">{siteConfig.cta.secondary}</Button>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="py-16">
-	<div class="container mx-auto px-4">
-		<div class="text-center mb-12">
-			<h2 class="text-3xl font-bold mb-4">Our Current Projects</h2>
-			<p class="text-lg text-muted-foreground">
-				Building innovative solutions for the digital world
+<section class="zen-spacing">
+	<div class="zen-section text-center">
+		<div class="mb-20">
+			<h2 class="text-2xl mb-4">Our Current Projects</h2>
+			<p class="text-muted-foreground zen-text max-w-md mx-auto">
+				Building innovative solutions
 			</p>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
 			{#each siteConfig.projects as project}
-				<Card>
-					<CardHeader>
-						<CardTitle>{project.name}</CardTitle>
+				<Card class="zen-card p-8 text-center">
+					<CardHeader class="pb-6">
+						<CardTitle class="text-lg">{project.name}</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<p class="text-sm text-muted-foreground">
+						<p class="text-sm text-muted-foreground zen-text">
 							{project.description}
 						</p>
 					</CardContent>
 				</Card>
 			{/each}
 		</div>
-		<div class="text-center mt-12">
-			<p class="text-sm text-muted-foreground mb-4">
+		<div class="mt-20">
+			<p class="text-sm text-muted-foreground mb-6 zen-text">
 				Operating in {siteConfig.countries.join(' and ')} since {siteConfig.company.founded}
 			</p>
-			<Badge variant="outline">{siteConfig.company.industries.join(' • ')}</Badge>
+			<Badge variant="outline" class="px-4 py-2 font-light border-primary/20 text-primary">
+				{siteConfig.company.industries.join(' • ')}
+			</Badge>
 		</div>
 	</div>
 </section>

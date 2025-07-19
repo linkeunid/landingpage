@@ -98,91 +98,77 @@
 	/>
 </svelte:head>
 
-<section
-	class="bg-gradient-to-r from-teal-50 to-emerald-50 py-20 dark:from-teal-950 dark:to-emerald-950"
->
-	<div class="container mx-auto px-4 text-center">
-		<Badge class="mb-4" style="background-color: {siteConfig.brand.colors.tealGreen}; color: white;"
-			>All Services</Badge
-		>
-		<h1 class="mb-6 text-4xl font-bold md:text-6xl">
+<section class="zen-spacing">
+	<div class="zen-section text-center">
+		<div class="mb-12">
+			<Badge class="mb-8 px-4 py-2 bg-primary/10 text-primary border-primary/20 font-light">
+				All Services
+			</Badge>
+		</div>
+		<h1 class="text-3xl md:text-5xl mb-8 zen-text max-w-2xl mx-auto">
 			{siteConfig.siteName} <span class="text-primary">Apps</span>
 		</h1>
-		<p class="text-muted-foreground mx-auto mb-8 max-w-3xl text-xl">
-			Discover our complete suite of digital solutions designed to optimize your work and streamline
-			your processes.
+		<p class="text-lg text-muted-foreground mb-16 max-w-xl mx-auto zen-text">
+			Discover our complete suite of digital solutions designed to optimize your work.
 		</p>
-		<div class="mx-auto grid max-w-2xl grid-cols-2 gap-6 md:grid-cols-4">
+		<div class="mx-auto grid max-w-2xl grid-cols-2 gap-8 md:grid-cols-4">
 			{#each stats as stat}
 				<div class="text-center">
-					<div
-						class="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg"
-						style="background-color: {siteConfig.brand.colors.tealGreen}20;"
-					>
-						<svelte:component
-							this={stat.icon}
-							class="h-6 w-6"
-							style="color: {siteConfig.brand.colors.tealGreen};"
-						/>
+					<div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+						<svelte:component this={stat.icon} class="h-5 w-5 text-primary" />
 					</div>
-					<div class="text-sm font-semibold">{stat.value}</div>
-					<div class="text-muted-foreground text-xs">{stat.description}</div>
+					<div class="text-sm font-light text-primary mb-1">{stat.value}</div>
+					<div class="text-muted-foreground text-xs zen-text">{stat.description}</div>
 				</div>
 			{/each}
 		</div>
 	</div>
 </section>
 
-<section class="py-16">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
+<section class="zen-spacing">
+	<div class="zen-section">
+		<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 xl:grid-cols-3">
 			{#each apps as app}
-				<Card class="flex h-full flex-col">
-					<CardHeader>
-						<div class="mb-4 flex items-center space-x-3">
-							<div
-								class="flex h-12 w-12 items-center justify-center rounded-xl text-white"
-								style="background-color: {app.bgColor};"
-							>
-								<svelte:component this={app.icon} class="h-6 w-6" />
+				<Card class="zen-card p-8 flex h-full flex-col text-center">
+					<CardHeader class="p-0 mb-8">
+						<div class="mb-6 flex flex-col items-center">
+							<div class="flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-primary/10">
+								<svelte:component this={app.icon} class="h-6 w-6 text-primary" />
 							</div>
-							<div class="flex-1">
-								<CardTitle class="text-lg">{app.name}</CardTitle>
-								<div class="mt-1 flex items-center space-x-2">
+							<div>
+								<CardTitle class="text-lg font-light mb-3">{app.name}</CardTitle>
+								<div class="flex items-center justify-center space-x-2">
 									<Badge
 										variant={app.status === 'Active'
 											? 'default'
 											: app.status === 'In Development'
 												? 'secondary'
 												: 'outline'}
-										class="text-xs"
+										class="text-xs font-light"
 									>
 										{app.status}
 									</Badge>
-									<Badge variant="outline" class="text-xs">{app.category}</Badge>
+									<Badge variant="outline" class="text-xs font-light border-primary/20 text-primary">{app.category}</Badge>
 								</div>
 							</div>
 						</div>
 					</CardHeader>
-					<CardContent class="flex flex-1 flex-col">
-						<p class="text-muted-foreground mb-6 text-sm">
+					<CardContent class="p-0 flex flex-1 flex-col text-left">
+						<p class="text-muted-foreground mb-8 text-sm zen-text text-center">
 							{app.description}
 						</p>
 
-						<div class="mb-6">
-							<h4 class="mb-3 text-sm font-semibold">Key Features:</h4>
-							<ul class="text-muted-foreground grid grid-cols-1 gap-1 text-xs">
+						<div class="mb-8">
+							<h4 class="mb-4 text-sm font-light">Key Features:</h4>
+							<ul class="text-muted-foreground grid grid-cols-1 gap-2 text-xs">
 								{#each app.features.slice(0, 6) as feature}
-									<li class="flex items-center space-x-2">
-										<div
-											class="h-1 w-1 rounded-full"
-											style="background-color: {app.bgColor};"
-										></div>
-										<span>{feature}</span>
+									<li class="flex items-center space-x-3">
+										<div class="h-1 w-1 rounded-full bg-primary"></div>
+										<span class="zen-text">{feature}</span>
 									</li>
 								{/each}
 								{#if app.features.length > 6}
-									<li class="text-muted-foreground/70 mt-1 text-xs">
+									<li class="text-muted-foreground/70 mt-2 text-xs zen-text">
 										+ {app.features.length - 6} more features
 									</li>
 								{/if}
@@ -194,7 +180,7 @@
 								href={app.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="w-full"
+								class="zen-button w-full"
 								disabled={app.status === 'Planning'}
 							>
 								{#if app.status === 'Planning'}
@@ -213,18 +199,18 @@
 	</div>
 </section>
 
-<section class="bg-muted/50 py-16">
-	<div class="container mx-auto px-4 text-center">
-		<h2 class="mb-6 text-3xl font-bold">Ready to Get Started?</h2>
-		<p class="text-muted-foreground mx-auto mb-8 max-w-2xl text-lg">
+<section class="zen-spacing bg-muted/30">
+	<div class="zen-section text-center">
+		<h2 class="mb-8 text-2xl">Ready to Get Started?</h2>
+		<p class="text-muted-foreground mx-auto mb-12 max-w-xl zen-text">
 			Join our launch celebration and experience the power of unified digital solutions.
 		</p>
-		<div class="flex flex-col justify-center gap-4 sm:flex-row">
-			<Button size="lg" href="/contact">
+		<div class="flex flex-col justify-center gap-6 sm:flex-row">
+			<Button size="lg" class="zen-button px-8 py-3" href="/contact">
 				{siteConfig.cta.secondary}
 				<ArrowRight class="ml-2 h-4 w-4" />
 			</Button>
-			<Button variant="outline" size="lg" href="/about">Learn More About Us</Button>
+			<Button variant="outline" size="lg" class="zen-button px-8 py-3" href="/about">Learn More About Us</Button>
 		</div>
 	</div>
 </section>

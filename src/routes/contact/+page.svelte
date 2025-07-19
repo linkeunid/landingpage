@@ -73,52 +73,54 @@
 	<meta name="description" content="Get in touch with {siteConfig.siteName}. We're here to help you with your software development and digital solution needs." />
 </svelte:head>
 
-<section class="py-20 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950 dark:to-emerald-950">
-	<div class="container mx-auto px-4 text-center">
-		<Badge class="mb-4" style="background-color: {siteConfig.brand.colors.tealGreen}; color: white;">Get in Touch</Badge>
-		<h1 class="text-4xl md:text-6xl font-bold mb-6">
+<section class="zen-spacing">
+	<div class="zen-section text-center">
+		<div class="mb-12">
+			<Badge class="mb-8 px-4 py-2 bg-primary/10 text-primary border-primary/20 font-light">
+				Get in Touch
+			</Badge>
+		</div>
+		<h1 class="text-3xl md:text-5xl mb-8 zen-text max-w-2xl mx-auto">
 			Contact <span class="text-primary">Us</span>
 		</h1>
-		<p class="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-			Ready to optimize your work with our all-in-one platform? Have questions about our services? 
-			Let's discuss how we can help your business grow.
+		<p class="text-lg text-muted-foreground mb-16 max-w-xl mx-auto zen-text">
+			Ready to optimize your work with our all-in-one platform? Let's discuss how we can help.
 		</p>
 	</div>
 </section>
 
-<section class="py-16">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<section class="zen-spacing">
+	<div class="zen-section">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
 			<div>
-				<h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
-				<p class="text-lg text-muted-foreground mb-8">
-					Have questions about our SaaS platform? Want to partner with us for business opportunities? 
-					Or need help with software development services? We're here to help you grow.
+				<h2 class="text-2xl mb-8">Let's Connect</h2>
+				<p class="text-muted-foreground mb-12 zen-text">
+					Have questions about our SaaS platform? Want to partner with us for business opportunities? We're here to help you grow.
 				</p>
 				
-				<div class="space-y-6">
-					<Card>
-						<CardContent class="p-6">
+				<div class="space-y-8">
+					<Card class="zen-card p-6">
+						<CardContent class="p-0">
 							<div class="flex items-center space-x-4">
-								<div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: {siteConfig.brand.colors.tealGreen}20;">
-									<Mail class="w-6 h-6" style="color: {siteConfig.brand.colors.tealGreen};" />
+								<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+									<Mail class="w-5 h-5 text-primary" />
 								</div>
 								<div>
-									<h3 class="font-semibold">Email</h3>
+									<h3 class="font-light mb-1">Email</h3>
 									<p class="text-sm text-muted-foreground">{siteConfig.company.email}</p>
 								</div>
 							</div>
 						</CardContent>
 					</Card>
 
-					<Card>
-						<CardContent class="p-6">
+					<Card class="zen-card p-6">
+						<CardContent class="p-0">
 							<div class="flex items-center space-x-4">
-								<div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: {siteConfig.brand.colors.tealGreen}20;">
-									<Phone class="w-6 h-6" style="color: {siteConfig.brand.colors.tealGreen};" />
+								<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+									<Phone class="w-5 h-5 text-primary" />
 								</div>
 								<div>
-									<h3 class="font-semibold">WhatsApp</h3>
+									<h3 class="font-light mb-1">WhatsApp</h3>
 									<a href="https://wa.me/{siteConfig.company.phone.replace(/\D/g, '')}" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
 										{siteConfig.company.phone}
 									</a>
@@ -127,14 +129,14 @@
 						</CardContent>
 					</Card>
 
-					<Card>
-						<CardContent class="p-6">
+					<Card class="zen-card p-6">
+						<CardContent class="p-0">
 							<div class="flex items-center space-x-4">
-								<div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: {siteConfig.brand.colors.tealGreen}20;">
-									<MapPin class="w-6 h-6" style="color: {siteConfig.brand.colors.tealGreen};" />
+								<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+									<MapPin class="w-5 h-5 text-primary" />
 								</div>
 								<div>
-									<h3 class="font-semibold">Address</h3>
+									<h3 class="font-light mb-1">Address</h3>
 									<p class="text-sm text-muted-foreground">
 										{siteConfig.company.address}
 									</p>
@@ -143,14 +145,14 @@
 						</CardContent>
 					</Card>
 
-					<Card>
-						<CardContent class="p-6">
+					<Card class="zen-card p-6">
+						<CardContent class="p-0">
 							<div class="flex items-center space-x-4">
-								<div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: {siteConfig.brand.colors.tealGreen}20;">
-									<Share2 class="w-6 h-6" style="color: {siteConfig.brand.colors.tealGreen};" />
+								<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+									<Share2 class="w-5 h-5 text-primary" />
 								</div>
 								<div>
-									<h3 class="font-semibold">Social Media</h3>
+									<h3 class="font-light mb-1">Social Media</h3>
 									<div class="text-sm text-muted-foreground">
 										<p>Instagram: @linkeunid</p>
 										<p>Threads: @linkeunid</p>
@@ -163,11 +165,11 @@
 			</div>
 
 			<div>
-				<Card>
-					<CardHeader>
-						<CardTitle>Send us a message</CardTitle>
+				<Card class="zen-card p-8">
+					<CardHeader class="p-0 mb-8">
+						<CardTitle class="text-xl font-light">Send us a message</CardTitle>
 					</CardHeader>
-					<CardContent>
+					<CardContent class="p-0">
 						<!-- Alert for non-functional form -->
 						<Alert class="mb-6" variant="destructive">
 							<AlertTriangle class="h-4 w-4" />
@@ -278,7 +280,7 @@
 								{/if}
 							</div>
 
-							<Button type="submit" size="lg" class="w-full" disabled={isSubmitting || !isFormValid}>
+							<Button type="submit" size="lg" class="zen-button w-full" disabled={isSubmitting || !isFormValid}>
 								{isSubmitting ? 'Sending...' : 'Send Message'}
 							</Button>
 						</form>
@@ -289,61 +291,56 @@
 	</div>
 </section>
 
-<section class="py-16 bg-muted/50">
-	<div class="container mx-auto px-4">
-		<div class="text-center mb-12">
-			<h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-			<p class="text-lg text-muted-foreground">
+<section class="zen-spacing bg-muted/30">
+	<div class="zen-section text-center">
+		<div class="mb-20">
+			<h2 class="text-2xl mb-4">Frequently Asked Questions</h2>
+			<p class="text-muted-foreground zen-text max-w-md mx-auto">
 				Quick answers to common questions
 			</p>
 		</div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-			<Card>
-				<CardHeader>
-					<CardTitle class="text-lg">What is {siteConfig.siteName}?</CardTitle>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+			<Card class="zen-card p-8 text-left">
+				<CardHeader class="pb-6">
+					<CardTitle class="text-lg font-light">What is {siteConfig.siteName}?</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p class="text-sm text-muted-foreground">
-						{siteConfig.siteName} is an all-in-one SaaS platform providing developer tools, 
-						shortlink management, and digital solutions. We help businesses and developers 
-						optimize their work with single-factor authentication.
+					<p class="text-sm text-muted-foreground zen-text">
+						{siteConfig.siteName} is an all-in-one SaaS platform providing developer tools, shortlink management, and digital solutions. We help businesses and developers optimize their work with single-factor authentication.
 					</p>
 				</CardContent>
 			</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle class="text-lg">What services do you offer?</CardTitle>
+			<Card class="zen-card p-8 text-left">
+				<CardHeader class="pb-6">
+					<CardTitle class="text-lg font-light">What services do you offer?</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p class="text-sm text-muted-foreground">
-						We offer software development services, SaaS platform solutions, web development, 
-						mobile development, and a comprehensive suite of digital tools and utilities.
+					<p class="text-sm text-muted-foreground zen-text">
+						We offer software development services, SaaS platform solutions, web development, mobile development, and a comprehensive suite of digital tools and utilities.
 					</p>
 				</CardContent>
 			</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle class="text-lg">Which countries do you serve?</CardTitle>
+			<Card class="zen-card p-8 text-left">
+				<CardHeader class="pb-6">
+					<CardTitle class="text-lg font-light">Which countries do you serve?</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p class="text-sm text-muted-foreground">
-						We currently serve clients in {siteConfig.countries.join(' and ')} with plans to 
-						expand our reach as we grow. Our platform is accessible globally.
+					<p class="text-sm text-muted-foreground zen-text">
+						We currently serve clients in {siteConfig.countries.join(' and ')} with plans to expand our reach as we grow. Our platform is accessible globally.
 					</p>
 				</CardContent>
 			</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle class="text-lg">How can businesses partner with you?</CardTitle>
+			<Card class="zen-card p-8 text-left">
+				<CardHeader class="pb-6">
+					<CardTitle class="text-lg font-light">How can businesses partner with you?</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p class="text-sm text-muted-foreground">
-						We welcome partnerships with businesses looking to integrate our tools or collaborate 
-						on digital solutions. Contact us to discuss partnership opportunities and benefits.
+					<p class="text-sm text-muted-foreground zen-text">
+						We welcome partnerships with businesses looking to integrate our tools or collaborate on digital solutions. Contact us to discuss partnership opportunities and benefits.
 					</p>
 				</CardContent>
 			</Card>
