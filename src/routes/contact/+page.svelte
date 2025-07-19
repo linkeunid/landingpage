@@ -107,7 +107,7 @@
 								</div>
 								<div>
 									<h3 class="font-light mb-1">Email</h3>
-									<p class="text-sm text-muted-foreground">{siteConfig.company.email}</p>
+									<a href="mailto:{siteConfig.company.email}" class="text-sm text-muted-foreground hover:text-foreground transition-colors">{siteConfig.company.email}</a>
 								</div>
 							</div>
 						</CardContent>
