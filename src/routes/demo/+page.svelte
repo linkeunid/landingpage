@@ -10,34 +10,36 @@
 	<meta name="description" content="Explore demo pages and features of Linkeun Mono platform." />
 </svelte:head>
 
-<div class="container mx-auto px-4 py-16">
-	<div class="max-w-4xl mx-auto">
-		<div class="text-center mb-12">
-			<Badge class="mb-4">Demo Pages</Badge>
-			<h1 class="text-4xl font-bold mb-6">
+<section class="zen-spacing">
+	<div class="zen-section">
+		<div class="text-center mb-20">
+			<Badge class="mb-8 px-4 py-2 bg-primary/10 text-primary border-primary/20 font-light">Demo Pages</Badge>
+			<h1 class="text-3xl md:text-5xl mb-8 zen-text max-w-2xl mx-auto">
 				Platform <span class="text-primary">Demos</span>
 			</h1>
-			<p class="text-xl text-muted-foreground">
+			<p class="text-lg text-muted-foreground max-w-xl mx-auto zen-text">
 				Explore different features and components of our platform
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<Card class="hover:shadow-lg transition-shadow">
-				<CardHeader>
-					<div class="flex items-center space-x-2">
-						<Globe class="h-6 w-6 text-primary" />
-						<CardTitle>Paraglide i18n</CardTitle>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+			<Card class="zen-card p-8 text-center">
+				<CardHeader class="p-0 mb-8">
+					<div class="flex items-center justify-center space-x-3 mb-4">
+						<div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+							<Globe class="h-5 w-5 text-primary" />
+						</div>
+						<CardTitle class="text-lg font-light">Paraglide i18n</CardTitle>
 					</div>
-					<CardDescription>
+					<CardDescription class="zen-text">
 						Internationalization demo with multiple language support
 					</CardDescription>
 				</CardHeader>
-				<CardContent>
-					<p class="text-sm text-muted-foreground mb-4">
+				<CardContent class="p-0">
+					<p class="text-sm text-muted-foreground mb-8 zen-text">
 						Test our multilingual capabilities with real-time language switching between English, Indonesian, and Japanese.
 					</p>
-					<Button href="/demo/paraglide" class="w-full">
+					<Button href="/demo/paraglide" class="zen-button w-full">
 						<Code class="w-4 h-4 mr-2" />
 						View Demo
 						<ExternalLink class="w-4 h-4 ml-2" />
@@ -45,31 +47,33 @@
 				</CardContent>
 			</Card>
 
-			<Card class="hover:shadow-lg transition-shadow opacity-75">
-				<CardHeader>
-					<div class="flex items-center space-x-2">
-						<Code class="h-6 w-6 text-muted-foreground" />
-						<CardTitle class="text-muted-foreground">More Demos</CardTitle>
+			<Card class="zen-card p-8 text-center opacity-75">
+				<CardHeader class="p-0 mb-8">
+					<div class="flex items-center justify-center space-x-3 mb-4">
+						<div class="w-10 h-10 rounded-full flex items-center justify-center bg-muted">
+							<Code class="h-5 w-5 text-muted-foreground" />
+						</div>
+						<CardTitle class="text-lg font-light text-muted-foreground">More Demos</CardTitle>
 					</div>
-					<CardDescription>
+					<CardDescription class="zen-text">
 						Additional platform features coming soon
 					</CardDescription>
 				</CardHeader>
-				<CardContent>
-					<p class="text-sm text-muted-foreground mb-4">
+				<CardContent class="p-0">
+					<p class="text-sm text-muted-foreground mb-8 zen-text">
 						We're working on more interactive demos to showcase our platform capabilities.
 					</p>
-					<Button variant="outline" disabled class="w-full">
+					<Button variant="outline" disabled class="zen-button w-full">
 						Coming Soon
 					</Button>
 				</CardContent>
 			</Card>
 		</div>
 
-		<div class="mt-12 text-center">
-			<Button variant="ghost" href="/">
+		<div class="mt-20 text-center">
+			<Button variant="ghost" class="zen-button" href="/">
 				← Back to Home
 			</Button>
 		</div>
 	</div>
-</div>
+</section>
