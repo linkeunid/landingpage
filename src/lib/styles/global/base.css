@@ -27,3 +27,10 @@
 :root {
 	-webkit-tap-highlight-color: color-mix(in oklab, var(--color-aka) 15%, transparent);
 }
+
+/* #about / #contact links glide (= tw motion-safe:scroll-smooth on <html>) */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}

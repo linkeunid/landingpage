@@ -39,7 +39,7 @@
 	@apply h-10 w-px bg-linear-to-b from-aka/60 to-transparent;
 }
 
-/* floating round control (landing theme + account, to-top) */
+/* floating round control (to-top) */
 @utility chip {
 	@apply fixed top-6 z-50 flex h-10 items-center rounded-full border border-ai/20 bg-washi/80 text-ai backdrop-blur-sm dark:border-shira/20 dark:bg-kon/80 dark:text-shira;
 }

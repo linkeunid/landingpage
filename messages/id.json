@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"locale_toggle": "Read in English",
-	"locale_toggle_label": "en"
+	"locale_toggle_label": "en",
+	"to_top": "Kembali ke atas"
 }

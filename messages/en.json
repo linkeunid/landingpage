@@ -1,5 +1,6 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"locale_toggle": "Baca dalam Bahasa Indonesia",
-	"locale_toggle_label": "id"
+	"locale_toggle_label": "id",
+	"to_top": "Back to top"
 }

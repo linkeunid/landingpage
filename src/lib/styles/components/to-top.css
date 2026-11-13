@@ -1,0 +1,30 @@
+/* bottom-right square pane; fades in after one screen of scrolling */
+@utility to-top {
+	@apply pointer-events-none chip top-auto right-6 bottom-18 w-10 translate-y-2 justify-center rounded-none opacity-0 transition-[opacity,translate,color] duration-200 hover:text-aka focus-visible:ring-2 focus-visible:ring-aka/40 focus-visible:outline-none motion-reduce:transition-none max-sm:right-4 dark:hover:text-aka;
+}
+
+@utility to-top--shown {
+	@apply pointer-events-auto translate-y-0 opacity-100;
+}
+
+/* reading progress: the frame's edge is planed round as the page scrolls */
+@utility to-top__frame {
+	@apply pointer-events-none absolute -inset-px fill-none stroke-aka/70;
+	stroke-width: 1;
+	stroke-dasharray: 1;
+	stroke-dashoffset: 0;
+
+	@supports (animation-timeline: scroll()) {
+		animation: to-top-plane linear both;
+		animation-timeline: scroll(root);
+	}
+}
+
+@keyframes to-top-plane {
+	from {
+		stroke-dashoffset: 1;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}

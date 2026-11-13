@@ -25,5 +25,6 @@
 @import '../lib/styles/components/locale-toggle.css';
 @import '../lib/styles/components/navbar.css';
 @import '../lib/styles/components/app-switcher.css';
+@import '../lib/styles/components/to-top.css';
 @import '../lib/styles/components/home-page.css';
 @import '../lib/styles/components/newda-map.css';

@@ -7,6 +7,7 @@
 	import Shoji from '#lib/components/layout/Shoji.svelte';
 	import GrainOverlay from '#lib/components/layout/GrainOverlay.svelte';
 	import Navbar from '#lib/components/layout/Navbar.svelte';
+	import ToTop from '#lib/components/layout/ToTop.svelte';
 
 	let { data, children } = $props();
 
@@ -32,4 +33,5 @@
 	<Navbar />
 
 	{@render children()}
+	<ToTop />
 </IconContext>
