@@ -6,19 +6,37 @@ Everything you need to build a Svelte project, powered by [`sv`](https://github.
 
 If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
+```sh
+# create a new project
 npx sv create my-app
+```
+
+To recreate this project with the same configuration:
+
+```sh
+# recreate this project
+pnpm dlx sv@1.3.0 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright="demo:yes" tailwindcss="plugins:typography,forms" enhanced-img sveltekit-adapter="adapter:cloudflare+cfTarget:workers" paraglide="languageTags:en,id+demo:yes" ai-tools="ide:claude-code+delivery:plugin+optInSkills:svelte-mcp-feedback" --install pnpm landingpage
+```
+
+## Adding features
+
+Add features to your project with `sv add`:
+
+```sh
+npx sv add
+```
+
+For example, to add Tailwind CSS:
+
+```sh
+npx sv add tailwindcss
 ```
 
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-```bash
+```sh
 npm run dev
 
 # or start the server and open the app in a new browser tab
@@ -29,10 +47,8 @@ npm run dev -- --open
 
 To create a production version of your app:
 
-```bash
+```sh
 npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

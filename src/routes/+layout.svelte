@@ -1,10 +1,25 @@
 <script lang="ts">
-	import '../app.css';
-	import AppContainer from '$lib/components/app-container.svelte';
-	
-	let { children } = $props();
+	import type { Path } from '$app/types';
+	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
+	import { locales, localizeHref } from '#lib/paraglide/runtime.js';
+	import './layout.css';
+	import DemoLinks from './demo/DemoLinks.svelte';
+	import favicon from '#lib/assets/favicon.svg';
+	import type { LayoutProps } from './$types';
+
+	let { children }: LayoutProps = $props();
 </script>
 
-<AppContainer>
-	{@render children()}
-</AppContainer>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+</svelte:head>
+
+{@render children()}
+<DemoLinks />
+
+<div style="display:none">
+	{#each locales as locale (locale)}
+		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Path)}>{locale}</a>
+	{/each}
+</div>

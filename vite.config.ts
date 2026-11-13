@@ -1,34 +1,47 @@
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vitest/config';
+import { playwright } from '@vitest/browser-playwright';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [
+		enhancedImages(),
 		tailwindcss(),
-		sveltekit(),
+		sveltekit({
+			compilerOptions: {
+				// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
+				runes: ({ filename }) =>
+					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+			},
+			adapter: adapter()
+		}),
+
 		paraglideVitePlugin({
 			project: './project.inlang',
-			outdir: './src/lib/paraglide'
+			outdir: './src/lib/paraglide',
+			emitTsDeclarations: true
 		})
 	],
 	test: {
+		expect: { requireAssertions: true },
 		projects: [
 			{
 				extends: './vite.config.ts',
 				test: {
 					name: 'client',
-					environment: 'browser',
 					browser: {
 						enabled: true,
-						provider: 'playwright',
-						instances: [{ browser: 'chromium' }]
+						provider: playwright(),
+						instances: [{ browser: 'chromium', headless: true }]
 					},
 					include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['src/lib/server/**'],
-					setupFiles: ['./vitest-setup-client.ts']
+					exclude: ['src/lib/server/**']
 				}
 			},
+
 			{
 				extends: './vite.config.ts',
 				test: {
