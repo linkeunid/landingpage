@@ -1,6 +1,7 @@
 /* kumiko grid: tall paper panes (2:3) inside heavier frames every 4 panes */
+/* lvh height (not inset-0): mobile URL bar hide/show resizes inset-0 boxes mid-scroll, so the bottom lattice jumped */
 @utility shoji {
-	@apply pointer-events-none fixed inset-0 z-[1] overflow-hidden;
+	@apply pointer-events-none fixed inset-x-0 top-0 z-[1] h-lvh overflow-hidden;
 }
 
 @utility shoji__lattice {
