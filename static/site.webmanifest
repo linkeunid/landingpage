@@ -1,7 +1,7 @@
 {
 	"name": "Linkeun Mono",
 	"short_name": "Linkeun Mono",
-	"description": "Linkeun Mono is the studio behind lkmn.link, the free URL shortener.",
+	"description": "Linkeun Mono is the studio behind lkmn.link, the free URL shortener, and Newda, a map of anime, manga and light novels.",
 	"start_url": "/",
 	"icons": [
 		{ "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },

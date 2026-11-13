@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { localizeHref } from '#lib/paraglide/runtime.js';
 	import { site } from '#lib/data/site.js';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LocaleToggle from './LocaleToggle.svelte';
@@ -7,7 +8,7 @@
 </script>
 
 <header class="navbar">
-	<a href={resolve('/')} class="navbar__mark">{site.name}</a>
+	<a href={resolve(localizeHref('/') as '/')} class="navbar__mark">{site.name}</a>
 
 	<div class="navbar__end">
 		<LocaleToggle />

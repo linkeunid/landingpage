@@ -6,6 +6,9 @@ const NEWDA = 'https://newda.linkeun.com';
 type Value = { h: string; p: string; proof?: { label: string; href: string } };
 
 const en = {
+	title: 'Small tools for the web',
+	description:
+		'Linkeun Mono is the studio behind lkmn.link, the free URL shortener, and Newda, a map of anime, manga and light novels.',
 	lede: 'A small studio in Indonesia that builds quiet tools for the web.',
 	products: 'Products',
 	lkmn: {
@@ -48,6 +51,9 @@ const en = {
 export const COPY: Record<'en' | 'id', typeof en> = {
 	en,
 	id: {
+		title: 'Alat web sederhana',
+		description:
+			'Linkeun Mono adalah studio di balik lkmn.link, pemendek URL gratis, dan Newda, peta anime, manga, dan light novel.',
 		lede: 'Studio kecil di Indonesia yang membuat alat web sederhana.',
 		products: 'Produk',
 		lkmn: {

@@ -45,7 +45,26 @@ export default defineConfig({
 		paraglideVitePlugin({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide',
-			emitTsDeclarations: true
+			emitTsDeclarations: true,
+			// /id/ is its own crawlable URL (hreflang); en stays at /. cookie only for paths without a prefix
+			strategy: ['url', 'cookie', 'baseLocale'],
+			// no trailing slash on /id: kit 308s /id/ to /id
+			urlPatterns: [
+				{
+					pattern: '/',
+					localized: [
+						['id', '/id'],
+						['en', '/']
+					]
+				},
+				{
+					pattern: '/:path(.*)',
+					localized: [
+						['id', '/id/:path(.*)'],
+						['en', '/:path(.*)']
+					]
+				}
+			]
 		})
 	],
 	test: {

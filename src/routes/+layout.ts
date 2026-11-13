@@ -1,10 +1,14 @@
 import { defineBaseMetaTags } from 'svelte-meta-tags';
-import { getLocale } from '#lib/paraglide/runtime.js';
+import { deLocalizeUrl, getLocale, locales, localizeUrl } from '#lib/paraglide/runtime.js';
 import { isProd, site } from '#lib/data/site.js';
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = ({ url }) => {
 	const canonical = url.origin + url.pathname;
+	// same page in every locale (/ and /id/), x-default = base locale
+	const base = deLocalizeUrl(url);
+	base.search = base.hash = '';
+	const alt = (locale: (typeof locales)[number]) => localizeUrl(base, { locale }).href;
 	return {
 		...defineBaseMetaTags({
 			title: site.name,
@@ -12,6 +16,10 @@ export const load: LayoutLoad = ({ url }) => {
 			description: site.description,
 			keywords: [...site.keywords],
 			canonical,
+			languageAlternates: [
+				...locales.map((hrefLang) => ({ hrefLang, href: alt(hrefLang) })),
+				{ hrefLang: 'x-default', href: alt('en') }
+			],
 			robots: isProd(url) ? 'index,follow' : 'noindex,nofollow',
 			openGraph: {
 				type: 'website',
