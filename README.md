@@ -1,54 +1,32 @@
-# sv
+# landingpage
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteKit site for [www.linkeun.com](https://www.linkeun.com), the Linkeun Mono studio page, on Cloudflare Workers. Apps it links: [lkmn.link](https://lkmn.link), [Newda](https://newda.linkeun.com).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Setup
 
 ```sh
-# create a new project
-npx sv create my-app
+pnpm install
+pnpm gen   # worker-configuration.d.ts (gitignored)
+pnpm dev
 ```
 
-To recreate this project with the same configuration:
+No env vars or secrets.
 
-```sh
-# recreate this project
-pnpm dlx sv@1.3.0 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright="demo:yes" tailwindcss="plugins:typography,forms" enhanced-img sveltekit-adapter="adapter:cloudflare+cfTarget:workers" paraglide="languageTags:en,id+demo:yes" ai-tools="ide:claude-code+delivery:plugin+optInSkills:svelte-mcp-feedback" --install pnpm landingpage
-```
+## Commands
 
-## Adding features
+| Command                       | Does                                              |
+| ----------------------------- | ------------------------------------------------- |
+| `pnpm check`                  | `wrangler types --check` + svelte-check           |
+| `pnpm lint` / `pnpm format`   | prettier + eslint                                 |
+| `pnpm test`                   | vitest (server + browser specs)                   |
+| `pnpm gen`                    | `wrangler types` (after `wrangler.jsonc` changes) |
+| `pnpm build` / `pnpm preview` | production build, served by `wrangler dev`        |
 
-Add features to your project with `sv add`:
+## Deploy
 
-```sh
-npx sv add
-```
+| Env        | Domain                                          | How                                                                                                                |
+| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| beta       | `beta.linkeun.com`                              | auto on push to `main`                                                                                             |
+| production | `www.linkeun.com` (+ `linkeun.com`, 301 to www) | `git tag -a vX.Y.Z -m vX.Y.Z && git push origin vX.Y.Z`, then `gh workflow run deploy-production.yml --ref vX.Y.Z` |
 
-For example, to add Tailwind CSS:
-
-```sh
-npx sv add tailwindcss
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
+Use `pnpm run deploy`, not `pnpm deploy`. Details: [docs/features](docs/features/README.md) ([deployment](docs/features/deployment.md), [content](docs/features/content.md)). Code and style rules: [CLAUDE.md](CLAUDE.md).
