@@ -1,0 +1,49 @@
+/* trigger sits in the navbar beside the toggles */
+@utility app-switcher {
+	@apply flex h-8 w-8 items-center justify-center text-nezumi transition-colors duration-150 hover:text-aka data-[state=open]:text-aka;
+}
+
+/* the panel is a small shoji: paper ground, one frame border, panes split by bars */
+@utility app-switcher__panel {
+	@apply z-[60] w-[min(20rem,calc(100vw-2rem))] animate-fade-slide-down bg-washi p-4 outline-none dark:bg-kon;
+	border: 2px solid var(--frame);
+}
+
+@utility app-switcher__title {
+	@apply mb-3 text-sm font-bold text-ai dark:text-shira;
+}
+
+/* panes share their bars: gap-px over the bar colour draws the kumiko lines */
+@utility app-switcher__grid {
+	@apply grid grid-cols-3 gap-px [&>li]:flex;
+	background: var(--bar);
+	border: 1px solid var(--bar);
+}
+
+@utility app-switcher__app {
+	@apply flex min-h-28 w-full flex-col items-center justify-start gap-1 bg-washi px-2 py-3 text-center transition-colors dark:bg-kon;
+
+	&:hover,
+	&:focus-visible {
+		& .app-switcher__mark {
+			@apply text-aka;
+		}
+	}
+
+	/* the app you're in is stamped, like the house seal */
+	&[aria-current='page'] .app-switcher__mark {
+		@apply border-aka/50 text-aka;
+	}
+}
+
+@utility app-switcher__mark {
+	@apply mb-1 flex h-9 w-9 items-center justify-center border border-ai/25 font-mono text-sm font-bold text-ai transition-colors dark:border-shira/25 dark:text-shira;
+}
+
+@utility app-switcher__name {
+	@apply font-mono text-[0.68rem] leading-tight text-ai dark:text-shira;
+}
+
+@utility app-switcher__what {
+	@apply text-[0.65rem] leading-tight text-nezumi;
+}

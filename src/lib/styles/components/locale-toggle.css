@@ -1,0 +1,4 @@
+/* sits between the theme toggle and the account menu */
+@utility locale-toggle {
+	@apply chip right-20 w-10 justify-center font-mono text-[0.65rem] tracking-widest uppercase transition-colors duration-150 hover:text-aka dark:hover:text-aka;
+}

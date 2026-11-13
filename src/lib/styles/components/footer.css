@@ -1,0 +1,30 @@
+/* closing line stays in the page flow; the links live in the fixed bar/pill below */
+@utility footer-note {
+	@apply relative z-10 mb-12 flex animate-fade-slide-down flex-col items-center [animation-delay:0.26s];
+}
+
+@utility footer-note__text {
+	@apply mt-4 text-center text-sm tracking-[0.3em] text-nezumi;
+}
+
+/* open frame like the navbar, closing the page flow: the lattice and cursor light run through it */
+@utility footer {
+	@apply relative z-40 flex h-12 items-center gap-6 px-6 pb-[env(safe-area-inset-bottom)] font-mono text-[0.68rem] tracking-widest whitespace-nowrap text-nezumi max-sm:gap-4 max-sm:px-4;
+	border-top: 2px solid var(--frame);
+	& .footer__colophon {
+		@apply ml-auto;
+	}
+}
+
+@utility footer__links {
+	@apply flex gap-6 max-sm:gap-4;
+}
+
+@utility footer__link {
+	@apply transition-colors hover:text-aka;
+}
+
+/* hanko-style stamp, set slightly off-square like a hand-pressed seal */
+@utility footer__seal {
+	@apply inline-block -rotate-2 rounded-[2px] border border-aka/50 px-1.5 py-0.5 text-[0.6rem] text-aka motion-reduce:rotate-0;
+}

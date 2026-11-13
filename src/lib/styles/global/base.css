@@ -1,0 +1,29 @@
+:root {
+	--pane-w: 28px;
+	--pane-h: 42px;
+	/* joinery line weights, shared by the shoji lattice and the navbar/footer rails */
+	--bar: color-mix(in oklab, var(--color-ai) 22%, transparent);
+	--frame: color-mix(in oklab, var(--color-ai) 34%, transparent);
+	/* nezumi darkened in light mode for 4.5:1 on washi */
+	--color-nezumi: #66655d;
+}
+.dark {
+	--bar: color-mix(in oklab, var(--color-shira) 12%, transparent);
+	--frame: color-mix(in oklab, var(--color-shira) 20%, transparent);
+	--color-nezumi: #9a9a9a;
+	/* aka lifted in dark mode for 4.5:1 on ai */
+	--color-aka: #e35d44;
+}
+
+:focus-visible {
+	outline: 1px solid var(--color-aka);
+	outline-offset: 3px;
+}
+
+/* text selection + mobile tap flash in aka, not the browser's blue; text keeps its own color */
+::selection {
+	background: color-mix(in oklab, var(--color-aka) 30%, transparent);
+}
+:root {
+	-webkit-tap-highlight-color: color-mix(in oklab, var(--color-aka) 15%, transparent);
+}

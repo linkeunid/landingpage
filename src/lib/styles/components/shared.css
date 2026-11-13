@@ -1,0 +1,78 @@
+/* building blocks only — no margins/colors that callers vary; page files compose these */
+@utility page {
+	@apply relative flex min-h-dvh flex-col overflow-x-hidden bg-washi text-ai dark:bg-kon dark:text-shira;
+}
+
+@utility page__main {
+	@apply relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-20;
+}
+
+@utility page__head {
+	@apply flex animate-fade-slide-down flex-col items-center;
+}
+
+@utility page__title {
+	@apply font-display text-4xl font-black tracking-[0.2em] text-ai dark:text-shira;
+}
+
+@utility page__title--tight {
+	@apply tracking-[0.15em];
+}
+
+@utility page__subtitle {
+	@apply text-sm tracking-[0.2em] text-nezumi;
+}
+
+@utility page__section {
+	@apply w-full max-w-md animate-fade-slide-down [animation-delay:0.08s];
+}
+
+@utility page__section--late {
+	@apply [animation-delay:0.16s];
+}
+
+@utility page__emblem {
+	@apply mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-ai/20 bg-washi/50 backdrop-blur-sm dark:border-shira/20 dark:bg-kon/50;
+}
+
+@utility brush-line {
+	@apply h-10 w-px bg-linear-to-b from-aka/60 to-transparent;
+}
+
+/* floating round control (landing theme + account, to-top) */
+@utility chip {
+	@apply fixed top-6 z-50 flex h-10 items-center rounded-full border border-ai/20 bg-washi/80 text-ai backdrop-blur-sm dark:border-shira/20 dark:bg-kon/80 dark:text-shira;
+}
+
+@utility eyebrow {
+	@apply font-mono text-[0.65rem] tracking-[0.4em] uppercase;
+}
+
+@utility section-rule {
+	@apply flex items-center gap-3;
+}
+
+@utility section-rule__tick {
+	@apply h-px w-8 bg-ai/20 dark:bg-shira/20;
+}
+
+@utility section-rule__line {
+	@apply h-px flex-1 bg-ai/20 dark:bg-shira/20;
+}
+
+@utility section-rule__label {
+	@apply eyebrow whitespace-nowrap text-nezumi;
+}
+
+@utility icon-btn {
+	@apply flex h-8 w-8 shrink-0 items-center justify-center text-nezumi/70 transition-colors duration-150 hover:text-aka;
+}
+
+/* unavailable action: shown so rows keep their shape, not clickable */
+@utility icon-btn--off {
+	@apply cursor-not-allowed text-nezumi/30 hover:text-nezumi/30;
+}
+
+@utility link-muted {
+	@apply inline-block font-mono text-[0.65rem] tracking-[0.3em] text-nezumi uppercase hover:text-aka;
+}

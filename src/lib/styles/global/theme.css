@@ -1,0 +1,28 @@
+/* linkeun.com: joinery workshop. washi paper + aizome indigo; aka seal, Zen Old Mincho wordmark,
+   Plex Mono labels and grain are the Linkeun Mono house marks shared by every app */
+@theme {
+	--color-washi: #f3f3f0; /* shoji paper, light ground: neutral off-white like s-app kinari, not cream */
+	--color-ai: #1f2f4f; /* indigo dye, light-mode ink */
+	--color-kon: #131b2c; /* night indigo, dark ground */
+	--color-shira: #e6e0d2; /* unbleached, dark-mode ink */
+	--color-nezumi: #6b6658;
+	--color-aka: #c23b22; /* house seal */
+
+	--font-gothic: 'Zen Kaku Gothic New', system-ui, sans-serif;
+	--font-display: 'Zen Old Mincho', serif; /* wordmark only */
+	--font-mono: 'IBM Plex Mono', monospace;
+	--default-font-family: var(--font-gothic);
+
+	--animate-fade-slide-down: fade-slide-down 0.4s ease-out both;
+}
+
+@keyframes fade-slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

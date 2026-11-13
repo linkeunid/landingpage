@@ -1,0 +1,72 @@
+/* kumiko grid: tall paper panes (2:3) inside heavier frames every 4 panes */
+@utility shoji {
+	@apply pointer-events-none fixed inset-0 z-[1] overflow-hidden;
+}
+
+@utility shoji__lattice {
+	position: absolute;
+	width: min(46vw, 30rem);
+	height: min(56vh, 30rem);
+	background-image:
+		linear-gradient(var(--frame) 2px, transparent 2px),
+		linear-gradient(90deg, var(--frame) 2px, transparent 2px),
+		linear-gradient(var(--bar) 1px, transparent 1px),
+		linear-gradient(90deg, var(--bar) 1px, transparent 1px);
+	background-size:
+		calc(var(--pane-w) * 4) calc(var(--pane-h) * 4),
+		calc(var(--pane-w) * 4) calc(var(--pane-h) * 4),
+		var(--pane-w) var(--pane-h),
+		var(--pane-w) var(--pane-h);
+}
+
+/* each corner dissolves toward the page centre, like a screen half-slid open */
+@utility shoji__lattice--start {
+	@apply top-0 left-0;
+	mask-image: radial-gradient(ellipse at 0 0, #000 20%, transparent 70%);
+}
+
+@utility shoji__lattice--end {
+	@apply right-0 bottom-0;
+	background-position: right bottom;
+	mask-image: radial-gradient(ellipse at 100% 100%, #000 20%, transparent 70%);
+}
+
+/* lamp behind the paper: the full lattice shows only where the cursor lights it */
+@utility shoji__light {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 0.8s ease-out;
+	background-image:
+		radial-gradient(
+			circle at var(--x, 50%) var(--y, 50%),
+			color-mix(in oklab, white 45%, transparent),
+			transparent 60%
+		),
+		linear-gradient(var(--bar) 1px, transparent 1px),
+		linear-gradient(90deg, var(--bar) 1px, transparent 1px);
+	background-size:
+		auto,
+		var(--pane-w) var(--pane-h),
+		var(--pane-w) var(--pane-h);
+	mask-image: radial-gradient(circle 260px at var(--x, 50%) var(--y, 50%), #000, transparent);
+
+	&[data-lit] {
+		opacity: 1;
+	}
+
+	@variant dark {
+		background-image:
+			radial-gradient(
+				circle at var(--x, 50%) var(--y, 50%),
+				color-mix(in oklab, var(--color-shira) 8%, transparent),
+				transparent 60%
+			),
+			linear-gradient(var(--bar) 1px, transparent 1px),
+			linear-gradient(90deg, var(--bar) 1px, transparent 1px);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}

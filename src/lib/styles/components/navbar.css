@@ -1,0 +1,21 @@
+/* open frame: no fill, so the shoji lattice and the cursor light run through the bar */
+@utility navbar {
+	@apply absolute inset-x-0 top-0 z-50 flex h-14 items-center gap-8 px-6 max-sm:gap-4 max-sm:px-4;
+	border-bottom: 2px solid var(--frame);
+}
+
+@utility navbar__mark {
+	@apply shrink-0 font-display text-sm font-black tracking-[0.25em] text-ai transition-colors duration-150 hover:text-aka dark:text-shira dark:hover:text-aka;
+}
+
+@utility navbar__end {
+	@apply ml-auto flex h-full items-center gap-4;
+}
+
+/* theme + locale toggles drop their floating chip look inside the bar */
+@utility navbar__end {
+	& .theme-toggle,
+	& .locale-toggle {
+		@apply static h-8 w-8 border-transparent bg-transparent backdrop-blur-none;
+	}
+}

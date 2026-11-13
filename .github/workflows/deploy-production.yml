@@ -1,0 +1,75 @@
+name: Deploy production
+
+# Manual only: a PROD_MANAGERS member runs this workflow with "Use workflow from" = a v* tag:
+# check, test, build, wrangler deploy (Worker landingpage at www.linkeun.com + linkeun.com), then publish the GitHub release. Pushing a tag runs nothing.
+# Gate is soft (write access can edit this file); required reviewers need GitHub Team.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Require a tag
+        run: '[ "$GITHUB_REF_TYPE" = tag ] || { echo "::error::Run from a tag (Use workflow from → Tags)"; exit 1; }'
+
+      - name: Require a manager
+        env:
+          ACTOR: ${{ github.triggering_actor }}
+          MANAGERS: ${{ vars.PROD_MANAGERS }}
+        run: |
+          [[ ",${MANAGERS// /}," == *",$ACTOR,"* ]] || { echo "::error::$ACTOR is not in PROD_MANAGERS"; exit 1; }
+
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 12
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          check-latest: true
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # Browser specs (client project) need Chromium; skipped to save Actions minutes.
+      # - run: pnpm exec playwright install --with-deps chromium
+      # Gitignored, generated before pnpm check: worker-configuration.d.ts
+      # and src/lib/paraglide (vite plugin only compiles it on dev/build).
+      - run: pnpm gen
+      - run: pnpm exec paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --emit-ts-declarations
+      - run: pnpm check
+      - run: pnpm test --project server
+
+      - run: pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: false
+
+  # After a good deploy, publish the GitHub release for the tag (skipped if it exists, e.g. a rollback re-run).
+  release:
+    needs: deploy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Publish release
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then echo "release $TAG exists, skipping"; exit 0; fi
+          scripts/release-notes.sh "$TAG" > notes.md
+          gh release create "$TAG" --title "$TAG" --notes-file notes.md --verify-tag

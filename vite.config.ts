@@ -5,6 +5,16 @@ import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { execSync } from 'node:child_process';
+
+// short commit SHA → `version` from $app/environment; 'dev' outside a git checkout
+const sha = (() => {
+	try {
+		return execSync('git rev-parse --short HEAD').toString().trim();
+	} catch {
+		return 'dev';
+	}
+})();
 
 export default defineConfig({
 	plugins: [
@@ -16,7 +26,20 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			adapter: adapter(),
+			inlineStyleThreshold: 1024,
+			// Nonces on SSR pages (no prerendered ones). style-src/img-src/connect-src/font-src left open.
+			// Non-page responses get frame-ancestors only from handleSecurityHeaders (skipped if this header is set).
+			csp: {
+				mode: 'auto',
+				directives: {
+					'script-src': ['self'],
+					'object-src': ['none'],
+					'base-uri': ['self'],
+					'frame-ancestors': ['none']
+				}
+			},
+			version: { name: sha }
 		}),
 
 		paraglideVitePlugin({

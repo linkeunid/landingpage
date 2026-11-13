@@ -38,3 +38,4 @@ docs/prd/
 
 # Remember plugin
 .remember/
+worker-configuration.d.ts

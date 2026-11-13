@@ -1,0 +1,119 @@
+/* workshop drawing: content set flush-left on a measured column, not centred */
+@utility home-page {
+	@apply relative z-10 mx-auto w-full max-w-5xl flex-1 px-[clamp(1.5rem,8vw,7rem)] pt-32 pb-20 max-sm:pt-24;
+}
+
+@utility home-page__head {
+	@apply animate-fade-slide-down;
+}
+
+@utility home-page__title {
+	@apply font-display text-[clamp(2.5rem,7vw,4.5rem)] leading-none font-black tracking-[0.12em] text-ai dark:text-shira;
+}
+
+/* a planed rule: the joint line under the wordmark */
+@utility home-page__rule {
+	@apply mt-6 h-0.5 w-28 bg-ai dark:bg-shira;
+}
+
+@utility home-page__lede {
+	@apply mt-6 max-w-[34ch] text-lg leading-[1.7] text-ai dark:text-shira;
+}
+
+/* each section is a joint: hairline on top, its name in the drawing's left margin */
+@utility home-page__section {
+	@apply mt-20 grid animate-fade-slide-down gap-6 border-t border-ai/25 pt-4 md:grid-cols-[9rem_1fr] md:gap-10 dark:border-shira/20;
+	/* one load fade for the whole drawing, stepped like s-app: head 0, joints 0.06s apart */
+	animation-delay: 0.08s;
+	&:first-of-type {
+		@apply mt-16;
+	}
+	&:nth-of-type(2) {
+		animation-delay: 0.14s;
+	}
+	&:nth-of-type(3) {
+		animation-delay: 0.2s;
+	}
+}
+
+@utility home-page__heading {
+	@apply text-sm font-bold text-ai dark:text-shira;
+}
+
+@utility home-page__pieces {
+	@apply grid gap-6;
+}
+
+@utility home-page__piece {
+	@apply grid items-baseline gap-x-6 gap-y-1 sm:grid-cols-[8rem_1fr_auto];
+}
+
+@utility home-page__piece-name {
+	@apply justify-self-start font-mono text-sm text-ai underline decoration-ai/30 underline-offset-4 transition-colors hover:decoration-aka dark:text-shira dark:decoration-shira/30 dark:hover:decoration-aka;
+}
+
+@utility home-page__piece-body {
+	@apply min-w-0;
+}
+
+@utility home-page__piece-what {
+	@apply max-w-[48ch] text-sm leading-relaxed text-ai dark:text-shira;
+}
+
+/* the product's one move, drawn small: a long address fitted into a short one */
+@utility home-page__slip {
+	@apply mt-4 grid max-w-sm gap-1 py-1 pl-3 font-mono;
+	border-left: 2px solid var(--frame);
+}
+
+@utility home-page__slip-short {
+	@apply text-sm text-ai dark:text-shira;
+}
+
+@utility home-page__slip-long {
+	@apply truncate text-[0.68rem] text-nezumi;
+}
+
+/* the one action per product: a planed edge under the words, no arrow */
+@utility home-page__act {
+	@apply mt-4 inline-block border-b-2 border-ai pb-0.5 text-sm font-bold text-ai transition-colors hover:border-aka dark:border-shira dark:text-shira dark:hover:border-aka;
+}
+
+@utility home-page__piece-state {
+	@apply font-mono text-[0.68rem] text-nezumi;
+}
+
+@utility home-page__prose {
+	@apply max-w-[56ch] leading-[1.8] text-ai dark:text-shira;
+}
+
+@utility home-page__values {
+	@apply mt-8 grid gap-x-6 gap-y-1 sm:grid-cols-[8rem_1fr] sm:gap-y-3;
+}
+
+@utility home-page__value-name {
+	@apply text-sm font-bold text-ai max-sm:mt-3 dark:text-shira;
+}
+
+@utility home-page__value-what {
+	@apply text-sm leading-relaxed text-nezumi;
+}
+
+/* small receipts beside a claim: privacy pages, socials */
+@utility home-page__proof {
+	@apply font-mono text-[0.68rem] whitespace-nowrap text-nezumi underline decoration-nezumi/40 underline-offset-4 transition-colors hover:text-aka hover:decoration-aka;
+}
+
+@utility home-page__value-what {
+	& .home-page__proof {
+		@apply ml-2;
+	}
+}
+
+@utility home-page__email {
+	@apply mt-6 inline-block border-b-2 border-ai pb-0.5 font-mono text-base text-ai transition-colors hover:border-aka dark:border-shira dark:text-shira dark:hover:border-aka;
+}
+
+@utility home-page__socials {
+	@apply mt-5 flex flex-wrap gap-x-6 gap-y-2;
+}

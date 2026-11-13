@@ -1,0 +1,19 @@
+/* Newda in one glance: square joints and straight members, like a kumiko panel */
+@utility newda-map {
+	@apply mt-4 block h-auto w-full max-w-xs overflow-visible;
+}
+
+@utility newda-map__edge {
+	stroke: var(--frame);
+	stroke-width: 1.5;
+}
+
+@utility newda-map__node {
+	@apply fill-washi stroke-ai dark:fill-kon dark:stroke-shira;
+	stroke-width: 1.5;
+}
+
+@utility newda-map__label {
+	@apply fill-nezumi font-mono text-[9px];
+	text-anchor: middle;
+}

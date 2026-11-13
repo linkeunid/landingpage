@@ -1,4 +1,5 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from id!"
+	"locale_toggle": "Read in English",
+	"locale_toggle_label": "en"
 }

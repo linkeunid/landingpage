@@ -1,3 +1,29 @@
+/* self-hosted (fontsource), latin + latin-ext only: the JP subsets add ~120 @font-face rules per weight to the render-blocking CSS and no page shows JP text (user-entered JP falls back to system serif) */
+@import '@fontsource/zen-kaku-gothic-new/latin-400.css';
+@import '@fontsource/zen-kaku-gothic-new/latin-ext-400.css';
+@import '@fontsource/zen-kaku-gothic-new/latin-700.css';
+@import '@fontsource/zen-kaku-gothic-new/latin-ext-700.css';
+@import '@fontsource/zen-old-mincho/latin-900.css';
+@import '@fontsource/zen-old-mincho/latin-ext-900.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-ext-400.css';
+@import '@fontsource/ibm-plex-mono/latin-700.css';
+@import '@fontsource/ibm-plex-mono/latin-ext-700.css';
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import '../lib/styles/global/theme.css';
+@import '../lib/styles/global/base.css';
+
+@import '../lib/styles/components/shared.css';
+@import '../lib/styles/components/footer.css';
+@import '../lib/styles/components/grain.css';
+@import '../lib/styles/components/shoji.css';
+@import '../lib/styles/components/theme-toggle.css';
+@import '../lib/styles/components/locale-toggle.css';
+@import '../lib/styles/components/navbar.css';
+@import '../lib/styles/components/app-switcher.css';
+@import '../lib/styles/components/home-page.css';
+@import '../lib/styles/components/newda-map.css';
