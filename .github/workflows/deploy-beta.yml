@@ -4,6 +4,11 @@ name: Deploy beta
 on:
   push:
     branches: [main]
+    # Docs-only pushes change nothing that runs; skip the deploy (run it by hand if needed).
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.claude/**'
   workflow_dispatch:
 
 permissions:
