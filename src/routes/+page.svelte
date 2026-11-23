@@ -49,7 +49,7 @@
 					<div class="home-page__piece-body">
 						<p class="home-page__piece-what">{t.newda.what}</p>
 						<NewdaMap labels={t.newda.nodes} title={t.newda.example} />
-						<a class="home-page__act" href={LINKS.waitlist} rel="external">{t.newda.act}</a>
+						<a class="home-page__act" href={LINKS.newda} rel="external">{t.newda.act}</a>
 					</div>
 					<span class="home-page__piece-state">{t.newda.state}</span>
 				</li>

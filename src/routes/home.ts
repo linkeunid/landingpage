@@ -19,8 +19,8 @@ const en = {
 	},
 	newda: {
 		what: 'Anime, manga and light novels as one map: studios, staff, voice actors and the franchises that tie them together.',
-		state: 'Waitlist open',
-		act: 'Join the waitlist',
+		state: 'Pre-launch',
+		act: 'Take a look',
 		nodes: ['Series', 'Studio', 'Voice actor', 'Franchise'],
 		example: 'A small map: a series linked to its studio, a voice actor and its franchise'
 	},
@@ -39,7 +39,7 @@ const en = {
 		},
 		{
 			h: 'No ads',
-			p: 'No ads and no trackers. The Newda site sets no cookies at all.',
+			p: 'No ads and no trackers. Newda sets no cookies unless you sign in.',
 			proof: { label: 'Newda privacy', href: `${NEWDA}/privacy` }
 		}
 	] as Value[],
@@ -53,51 +53,50 @@ export const COPY: Record<'en' | 'id', typeof en> = {
 	id: {
 		title: 'Alat web sederhana',
 		description:
-			'Linkeun Mono adalah studio di balik lkmn.link, pemendek URL gratis, dan Newda, peta anime, manga, dan light novel.',
+			'Linkeun Mono adalah studio di balik lkmn.link, pemendek tautan gratis, dan Newda, peta anime, manga, dan novel ringan.',
 		lede: 'Studio kecil di Indonesia yang membuat alat web sederhana.',
 		products: 'Produk',
 		lkmn: {
-			what: 'Tautan pendek dengan hitungan kunjungan dan kode QR. Tautan cepat tidak perlu akun.',
+			what: 'Ubah tautan panjang menjadi pendek, lengkap dengan jumlah pengunjung dan kode QR. Tidak perlu daftar akun.',
 			state: 'Aktif',
 			act: 'Pendekkan tautan',
 			example: 'Contoh tautan pendek dan alamat yang dibukanya'
 		},
 		newda: {
-			what: 'Anime, manga, dan light novel dalam satu peta: studio, staf, pengisi suara, dan waralaba yang menghubungkannya.',
-			state: 'Daftar tunggu dibuka',
-			act: 'Gabung daftar tunggu',
+			what: 'Anime, manga, dan novel ringan dalam satu peta: studio, kru, pengisi suara, dan waralaba yang menghubungkannya.',
+			state: 'Belum diluncurkan',
+			act: 'Lihat Newda',
 			nodes: ['Seri', 'Studio', 'Pengisi suara', 'Waralaba'],
 			example: 'Peta kecil: sebuah seri terhubung ke studio, pengisi suara, dan waralabanya'
 		},
 		about: 'Tentang',
 		prose:
-			'Linkeun Mono adalah satu orang yang membuat alat web kecil. Masing-masing dibuat untuk satu tugas, dirakit dengan teliti, dan tetap dirawat setelah rilis.',
+			'Linkeun Mono dikerjakan oleh satu orang yang membuat alat web kecil. Setiap alat dibuat untuk satu tugas, dirakit dengan cermat, dan tetap dirawat setelah dirilis.',
 		values: [
 			{
-				h: 'Satu tugas',
-				p: 'lkmn.link hanya memendekkan tautan. Newda hanya memetakan anime, manga, dan light novel.'
+				h: 'Satu alat, satu tugas',
+				p: 'lkmn.link hanya memendekkan tautan. Newda hanya memetakan anime, manga, dan novel ringan.'
 			},
 			{
-				h: 'Simpan sedikit',
-				p: 'lkmn.link tidak pernah menyimpan alamat internetmu bersama kunjungan, dan menghapus catatan kunjungan setelah 90 hari.',
+				h: 'Data secukupnya',
+				p: 'lkmn.link tidak pernah mencatat alamat internet perangkatmu saat tautan dibuka, dan catatan kunjungan dihapus setelah 90 hari.',
 				proof: { label: 'Privasi lkmn.link', href: `${LKMN}/privacy` }
 			},
 			{
 				h: 'Tanpa iklan',
-				p: 'Tanpa iklan dan tanpa pelacak. Situs Newda sama sekali tidak memakai cookie.',
+				p: 'Tanpa iklan dan tanpa pelacak. Newda baru mengingatmu saat kamu masuk ke akun.',
 				proof: { label: 'Privasi Newda', href: `${NEWDA}/privacy` }
 			}
 		],
 		contact: 'Kontak',
 		contactLede:
-			'Punya ide alat kecil, atau menemukan bug? Kirim email. Setiap pesan dibaca orang, bukan bot.'
+			'Punya ide alat kecil atau menemukan masalah? Tulis saja. Setiap pesan dibaca langsung oleh manusia, bukan bot.'
 	}
 };
 
 export const LINKS = {
 	lkmn: LKMN,
 	newda: NEWDA,
-	waitlist: `${NEWDA}/#waitlist`,
 	// what the slip shows: a real-looking long address, shortened
 	example: {
 		short: 'lkmn.link/launch',
